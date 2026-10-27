@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Fareed Sokkar',
   role: 'Senior Full Stack Engineer',
-  photo: '/headshot.svg', // replace: drop headshot.jpg into /public and set '/headshot.jpg'
+  photo: '/fareed.webp',
   phone: '+972 52-816-4760',
   email: 'fareed.sokkar@gmail.com',
   linkedin: 'https://www.linkedin.com/in/', // TODO: add your LinkedIn URL
