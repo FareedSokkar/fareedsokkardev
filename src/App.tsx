@@ -72,9 +72,19 @@ function Hero({ darkMode }: { darkMode: boolean }) {
   return (
     <header className="hero" id="top">
       <motion.div style={{ y }} initial="hidden" animate="show" transition={{ staggerChildren: 0.12 }}>
+        <motion.p variants={rise} className="eyebrow">Reliable systems. Measurable impact.</motion.p>
         <motion.p variants={rise} className="role">{profile.role}</motion.p>
-        <motion.h1 variants={rise}>Fareed<br />Sokkar</motion.h1>
+        <motion.h1 variants={rise}>Fareed<br /><span>Sokkar</span></motion.h1>
         <motion.p variants={rise} className="lede">{profile.summary}</motion.p>
+        <motion.div variants={rise} className="hero-actions">
+          <a className="button button-primary" href="#experience" onClick={goTo('experience')}>View my experience <span aria-hidden="true">↓</span></a>
+          <a className="button button-quiet" href={`mailto:${profile.email}`}>Let’s connect <span aria-hidden="true">↗</span></a>
+        </motion.div>
+        <motion.div variants={rise} className="hero-meta" aria-label="Professional highlights">
+          <span><strong>6+</strong> years shipping software</span>
+          <span><strong>Cloud-native</strong> by default</span>
+          <span><strong>Based in</strong> Israel</span>
+        </motion.div>
         <motion.div variants={rise}><Ledger darkMode={darkMode} /></motion.div>
       </motion.div>
       <motion.figure className="photo" initial={{ clipPath: 'inset(0 0 100% 0)', opacity: 0 }}
@@ -88,7 +98,11 @@ function Hero({ darkMode }: { darkMode: boolean }) {
 function Achievements() {
   return (
     <section id="impact" className="wrap">
-      <h2>Impact</h2>
+      <div className="section-heading">
+        <p className="eyebrow">The numbers behind the work</p>
+        <h2>Impact</h2>
+        <p className="section-intro">I care about the outcomes as much as the architecture: faster processing, resilient transactions, and systems teams can trust.</p>
+      </div>
       {achievements.map((a) => (
         <motion.div key={a.big} className="ach" variants={rise} initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }}>
           <span className="big">{a.big}</span><p>{a.text}</p>
@@ -104,7 +118,11 @@ function Experience() {
   const grow = useSpring(scrollYProgress, { stiffness: 90, damping: 22 })
   return (
     <section id="experience" className="wrap">
-      <h2>Experience</h2>
+      <div className="section-heading">
+        <p className="eyebrow">Where I’ve made a difference</p>
+        <h2>Experience</h2>
+        <p className="section-intro">A track record across payments, telecom, and SaaS — from hands-on implementation to end-to-end technical ownership.</p>
+      </div>
       <div className="jobs" ref={ref}>
         <div className="track"><motion.div className="fill" style={{ scaleY: grow }} /></div>
         {jobs.map((j) => (
@@ -124,7 +142,10 @@ function Experience() {
 function Skills() {
   return (
     <section id="skills" className="wrap">
-      <h2>Skills</h2>
+      <div className="section-heading">
+        <p className="eyebrow">Tools I use to deliver</p>
+        <h2>Skills</h2>
+      </div>
       {skills.map((s) => (
         <div className="skill" key={s.group}>
           <h3>{s.group}</h3>
@@ -142,10 +163,15 @@ function Contact() {
   return (
     <footer id="contact" className="contact">
       <div className="wrap">
-        <motion.h2 variants={rise} initial="hidden" whileInView="show" viewport={{ once: true }}>Let’s talk about your revenue system.</motion.h2>
+        <p className="eyebrow">Have a hard problem to solve?</p>
+        <motion.h2 variants={rise} initial="hidden" whileInView="show" viewport={{ once: true }}>Let’s build something reliable.</motion.h2>
+        <p className="contact-copy">If you’re looking for an engineer who can connect product goals to production-ready systems, I’d love to hear from you.</p>
         <a className="mail" href={`mailto:${profile.email}`}>{profile.email}</a>
         <p><a href={`tel:${profile.phone.replace(/[^+\d]/g, '')}`}>{profile.phone}</a></p>
-        <p className="links"><a href={profile.linkedin}>LinkedIn</a> <a href={profile.github}>GitHub</a></p>
+        <p className="links">
+          {profile.linkedin !== 'https://www.linkedin.com/in/' && <a href={profile.linkedin}>LinkedIn</a>}
+          {profile.github !== 'https://github.com/' && <a href={profile.github}>GitHub</a>}
+        </p>
       </div>
     </footer>
   )

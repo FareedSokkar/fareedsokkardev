@@ -7,13 +7,13 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/', // TODO: add your LinkedIn URL
   github: 'https://github.com/',            // TODO: add your GitHub URL
   summary:
-    'I build the billing and payment systems behind cloud-native SaaS platforms: event-driven, multi-tenant, multi-region, and safe to retry. 6+ years across TypeScript, Java, Python and AWS.',
+    'I build the billing and payment systems behind cloud-native SaaS platforms: event-driven, multi-tenant, multi-region, and safe to retry. 6+ years turning complex business flows into reliable products across TypeScript, Java, Python and AWS.',
 }
 
 export const achievements = [
-  { big: '12×', text: 'the throughput of the legacy core system, from a telecom fulfillment solution I engineered.' },
-  { big: '4.5h → 15m', text: 'billing processing time after re-engineering a legacy billing system, at lower cost.' },
-  { big: '#1', text: 'Professional Team Member, awarded by the OSS division for outstanding contributions.' },
+  { big: '12×', text: 'higher throughput for a telecom fulfillment platform I engineered, helping the system scale with confidence.' },
+  { big: '4.5h → 15m', text: 'billing processing time after re-engineering a legacy system, while reducing operating cost.' },
+  { big: '#1', text: 'Professional Team Member, recognized by the OSS division for outstanding contributions.' },
 ]
 
 export const jobs = [
